@@ -1,4 +1,4 @@
-# NAME OF LAB GOES HERE
+# ReacTarot
 
 ## Outline of lab in progress, brainstorming, etc go 
 
