@@ -10,6 +10,10 @@ After completing this lab we should be a LOT more comfortable with manipulating 
 
 ## Rough draft of actual readme below here
 
+Dane Notes: 
+[The React Stocks lab](https://github.com/learn-co-students/React-Stocks-seattle-web-career-012819) is CLOSE, but it has an “addToPortfolio” thing we don’t need any part of, unless you want to make it a stretch goal to put cards in a separate collection (maybe like a randomly draw one)
+
+
 
 /////////////////////////////////////////////////////////////////////////
                          REACT README BELOW
