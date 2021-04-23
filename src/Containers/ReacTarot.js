@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Table from '../Components/Table'
+import CardContainer from './CardContainer';
 
 class ReacTarot extends Component {
     constructor(){
@@ -25,6 +26,7 @@ componentDidMount(){
         return(
             <div className="ReacTarot">
                 <Table />
+                <CardContainer cards={this.state.deck}/>
             </div>
         )
     }
