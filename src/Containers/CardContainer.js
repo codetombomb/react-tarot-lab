@@ -8,7 +8,7 @@ class CardContainer extends Component {
         return(
             <div className="card-container">
                 {this.props.cards.map((card,index) => {
-                    return(<Card key={index} info={card}/>)
+                    return(<Card key={index} info={card} setSelected={this.props.setSelected}/>)
                 })}  
             </div>
         )

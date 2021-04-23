@@ -64,6 +64,10 @@
   margin-bottom: 1%;
 }
 
+.card-wrapper{
+  /* border: 1px solid red; */
+}
+
 .card{
   background-image: url("https://64.media.tumblr.com/88cd3034cd28676a214ae40f93a1896d/tumblr_o0nfwjRmB51tzjajqo1_1280.jpg");
   background-size: cover;

@@ -9,11 +9,13 @@ class ReacTarot extends Component {
             deck: [],
             presentedCards: [],
             chosenCards: [],
+            selectedCard: {},
             past: [],
             present: [],
             future: []
         }
     }
+
 componentDidMount(){
     fetch("http://localhost:3001/cards")
     .then(resp => resp.json())
@@ -22,11 +24,18 @@ componentDidMount(){
     }))
 }
 
+setSelected = (e, cardInfo) => {
+    e.target.style.visibility = 'hidden';
+    this.setState({
+        selectedCard: {...cardInfo}
+    })
+}
+
     render() {
         return(
             <div className="ReacTarot">
                 <Table />
-                <CardContainer cards={this.state.deck}/>
+                <CardContainer setSelected={this.setSelected} cards={this.state.deck}/>
             </div>
         )
     }
