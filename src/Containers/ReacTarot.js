@@ -1,41 +1,46 @@
 import React, { Component } from 'react';
 import Table from '../Components/Table'
 import CardContainer from './CardContainer';
+import DisplayConsole from './DisplayConsole';
 
 class ReacTarot extends Component {
-    constructor(){
+    constructor() {
         super()
         this.state = {
             deck: [],
-            presentedCards: [],
-            chosenCards: [],
-            selectedCard: {},
-            past: [],
-            present: [],
-            future: []
+            // presentedCards: [],
+            threeChosenCards: [],
+            selectedCard: {}
         }
     }
 
-componentDidMount(){
-    fetch("http://localhost:3001/cards")
-    .then(resp => resp.json())
-    .then(data => this.setState({
-        deck: [...data]
-    }))
-}
+    componentDidMount() {
+        fetch("http://localhost:3001/cards")
+            .then(resp => resp.json())
+            .then(data => this.setState({
+                deck: [...data]
+            }))
+    }
 
-setSelected = (e, cardInfo) => {
-    e.target.style.visibility = 'hidden';
-    this.setState({
-        selectedCard: {...cardInfo}
-    })
-}
+    setSelected = (e, cardInfo) => {
+        let newSelectedCards = this.state.threeChosenCards;
+
+        if (this.state.threeChosenCards.length < 3) {
+            newSelectedCards.push(cardInfo)
+        }
+
+        e.target.style.visibility = 'hidden';
+        this.setState({
+            selectedCard: { ...cardInfo }
+        })
+    }
 
     render() {
-        return(
+        return (
             <div className="ReacTarot">
+                <DisplayConsole selectedCard={this.state.selectedCard}/>
                 <Table />
-                <CardContainer setSelected={this.setSelected} cards={this.state.deck}/>
+                <CardContainer setSelected={this.setSelected} cards={this.state.deck} />
             </div>
         )
     }
