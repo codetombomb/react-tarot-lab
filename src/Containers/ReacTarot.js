@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Table from '../Components/Table'
 import CardContainer from './CardContainer';
 import DisplayConsole from './DisplayConsole';
+import ForecastContainer from './ForecastContainer';
 
 class ReacTarot extends Component {
     constructor() {
@@ -32,6 +33,7 @@ class ReacTarot extends Component {
 
         e.target.style.visibility = 'hidden';
         this.setState({
+            threeChosenCards: [...newSelectedCards],
             selectedCard: { ...cardInfo }
         })
     }
@@ -95,7 +97,7 @@ class ReacTarot extends Component {
     }
 
     shuffleCards = () => {
-        console.log("Shuffleing cards")
+        console.log("Shuffling cards")
     }
 
     render() {
@@ -109,6 +111,7 @@ class ReacTarot extends Component {
                 />
                 <Table />
                 <CardContainer setSelected={this.setSelected} cards={this.state.presentedCards} />
+                <ForecastContainer cards={this.state.threeChosenCards } />
             </div>
         )
     }
