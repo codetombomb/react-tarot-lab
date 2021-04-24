@@ -167,3 +167,46 @@ button {
   border: 1px solid #E9C236;
   width: 100%;
 }
+
+.forecast-container{
+  font-family: Luminari, Fantasy, Sans-serif, Monospace, Cursive;
+  position: absolute;
+  right: 10vh;
+  height: 95%;
+  width: 20%;
+  color: #E9C236;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.forecast-card-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 35%;
+}
+
+.forecast-card{
+  position: relative;
+  text-align: center;
+  color: black;
+  height: 80%;
+  width: 50%;
+}
+
+.forecast-card h3{
+  position: absolute;
+  bottom: 2%;
+}
+
+.forecast-card-img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+}
