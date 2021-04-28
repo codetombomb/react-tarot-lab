@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DisplayCard from '../Components/DisplayCard'
-import ShuffleButton from '../Components/ShuffleButton';
+import Buttons from '../Components/Buttons';
 import SortFilter from '../Components/SortFilter';
 
 class DisplayConsole extends Component {
@@ -12,7 +12,7 @@ class DisplayConsole extends Component {
                     sortCards={this.props.sort}
                     filterCards={this.props.filter}
                 />
-                <ShuffleButton shuffle={this.props.shuffle} />
+                <Buttons shuffle={this.props.shuffle} flip={this.props.flip}/>
             </div>
         )
     }

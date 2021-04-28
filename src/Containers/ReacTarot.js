@@ -99,7 +99,7 @@ class ReacTarot extends Component {
     }
 
 
-    shuffleCards = () => {
+    handleShuffleCards = () => {
         let cards = this.state.presentedCards;
         console.log(cards)
         for(let i = cards.length - 1; i > 0; i--){
@@ -113,12 +113,17 @@ class ReacTarot extends Component {
         })
     }
 
+    handleFlipCards = () => {
+        console.log("flipping cards")
+    }
+
     render() {
         return (
             <div className="ReacTarot">
                 <DisplayConsole
                     selectedCard={this.state.selectedCard}
-                    shuffle={this.shuffleCards}
+                    shuffle={this.handleShuffleCards}
+                    flip={this.handleFlipCards}
                     sort={this.sortCards}
                     filter={this.filterCards}
                 />
