@@ -39,7 +39,8 @@ class ReacTarot extends Component {
     }
 
     sortCards = (selection) => {
-        let newPresentedCards = [];
+        let newPresentedCards;
+        console.log(selection)
         switch (selection) {
             case "":
                 newPresentedCards = this.state.deck;
@@ -56,8 +57,9 @@ class ReacTarot extends Component {
             default:
                 break;
         }
+        console.log(newPresentedCards)
         this.setState({
-            presentedCards: [...newPresentedCards]
+            presentedCards: newPresentedCards
         })
 
 
