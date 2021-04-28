@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Shuffle(props) {
+function ShuffleButton(props) {
     return (
         <div className="shuffle-button-wrapper">
             <button className="shuffle-button" onClick={props.shuffle}>Shuffle</button> 
@@ -8,4 +8,4 @@ function Shuffle(props) {
     );
 }
 
-export default Shuffle;
+export default ShuffleButton;

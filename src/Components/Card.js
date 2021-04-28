@@ -18,10 +18,9 @@ class Card extends Component {
     render() {
         return(
             <div className="card-wrapper">
-                <div className="card" onClick={(e) => {
-                    this.props.setSelected(e,this.state.cardInfo)
+                <div className="card" onClick={() => {
+                    this.props.setSelected(this.state.cardInfo)
                 }}>
-                    {/* <p>{this.props.info.name}</p> */}
                 </div>
             </div>
         )

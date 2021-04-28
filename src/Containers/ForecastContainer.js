@@ -9,9 +9,10 @@ class ForecastContainer extends Component {
             <div className="forecast-container">
                 {this.props.cards.map((card,index) => {
                     return <ForecastCard 
+                    key={card.name_short}
                     time={pastPresFut[index]} 
-                    cardName={card.name} 
-                    imageSrc={card.name_short}
+                    card={card}
+                    setSelected={this.props.setSelected}
                     />
                 })}
             </div>

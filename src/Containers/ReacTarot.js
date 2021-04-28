@@ -24,14 +24,14 @@ class ReacTarot extends Component {
             }))
     }
 
-    setSelected = (e, cardInfo) => {
+    setSelected = (cardInfo) => {
         let newSelectedCards = this.state.threeChosenCards;
-
-        if (this.state.threeChosenCards.length < 3) {
+        console.log(cardInfo.name)
+        console.log()
+        if (this.state.threeChosenCards.length < 3 && this.state.threeChosenCards.indexOf(cardInfo) === -1) {
             newSelectedCards.push(cardInfo)
         }
 
-        e.target.style.visibility = 'hidden';
         this.setState({
             threeChosenCards: [...newSelectedCards],
             selectedCard: { ...cardInfo }
@@ -57,7 +57,7 @@ class ReacTarot extends Component {
                 break;
         }
         this.setState({
-            presentedCards: newPresentedCards
+            presentedCards: [...newPresentedCards]
         })
 
 
@@ -96,8 +96,19 @@ class ReacTarot extends Component {
 
     }
 
+
     shuffleCards = () => {
-        console.log("Shuffling cards")
+        let cards = this.state.presentedCards;
+        console.log(cards)
+        for(let i = cards.length - 1; i > 0; i--){
+            let j = Math.floor(Math.random() * (i + 1));
+            let temp = cards[i];
+            cards[i] = cards[j];
+            cards[j] = temp;
+        }
+        this.setState({
+            presentedCards: [...cards]
+        })
     }
 
     render() {
@@ -110,8 +121,14 @@ class ReacTarot extends Component {
                     filter={this.filterCards}
                 />
                 <Table />
-                <CardContainer setSelected={this.setSelected} cards={this.state.presentedCards} />
-                <ForecastContainer cards={this.state.threeChosenCards } />
+                <CardContainer
+                    setSelected={this.setSelected}
+                    cards={this.state.presentedCards}
+                />
+                <ForecastContainer
+                    cards={this.state.threeChosenCards}
+                    setSelected={this.setSelected}
+                />
             </div>
         )
     }
