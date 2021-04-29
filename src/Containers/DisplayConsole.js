@@ -7,12 +7,15 @@ class DisplayConsole extends Component {
     render() {
         return (
             <div className="display-console-wrapper">
-                    <DisplayCard cardInfo={this.props.selectedCard} />
+                <DisplayCard cardInfo={this.props.selectedCard} />
                 <SortFilter
                     sortCards={this.props.sort}
                     filterCards={this.props.filter}
                 />
-                <Buttons shuffle={this.props.shuffle} flip={this.props.flip}/>
+                <Buttons
+                    shuffle={this.props.shuffle}
+                    flip={this.props.flip}
+                />
             </div>
         )
     }

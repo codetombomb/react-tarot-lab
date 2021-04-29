@@ -38,7 +38,7 @@
   justify-content: center;
   align-self: flex-end;
   height: 85%;
-  min-height: 400px;
+  min-height: 350px;
 }
 
 .tarot-table {
@@ -48,29 +48,29 @@
 
 .card-container {
   position: absolute;
-  height: 70%;
-  min-height: 375px;
-  width: 85vh;
-  min-width: 600px;
+  height: auto;
+  min-height: 300px;
+  width: 30vw;
+  min-width: 375px;
   align-self: flex-end;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-flow: wrap;
+  flex-flow: wrap-reverse;
   flex-grow: 1;
   color: #2E1441;
-  margin-bottom: 1%;
+  margin-bottom: 7%;
 }
 
 .card {
-  background-image: url("https://64.media.tumblr.com/88cd3034cd28676a214ae40f93a1896d/tumblr_o0nfwjRmB51tzjajqo1_1280.jpg");
+  /* background-image: url("https://64.media.tumblr.com/88cd3034cd28676a214ae40f93a1896d/tumblr_o0nfwjRmB51tzjajqo1_1280.jpg"); */
   background-size: cover;
   font-size: .01em;
   background-color: #ffffffd0;
   border: 1px solid grey;
   margin: .16vw;
-  width: 40px;
-  height: 60px;
+  width: 2vw;
+  height: 3.2vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,9 +80,9 @@
 
 .display-console-wrapper {
   position: absolute;
-  left: 10vh;
+  left: 7.5vw;
   height: 85%;
-  width: 20%;
+  width: 18%;
   color: #E9C236;
   display: flex;
   flex-direction: column;
@@ -92,12 +92,12 @@
 
 .display-card-wrapper {
   width: 100%;
-  height: 100%;
+  height: 85vh;
 }
 
 .display-card{
   position: absolute;
-  height: 100%;
+  height: 95%;
   width: 100%;
   position: relative;
   display: flex;
@@ -107,6 +107,7 @@
 
 .display-card-info {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border: 1px solid grey;
   position: absolute;
   bottom: 0;
   overflow-y: scroll;
@@ -117,7 +118,7 @@
 
 .display-card-img {
   position: absolute;
-  top: 2%;
+  top: 0;
   height: 75%;
   border-radius: 5%;
 }
@@ -133,19 +134,22 @@
 
 .sort-filter {
   margin: 2% 0px 2% 0px;
-  width: 100%;
+  width: 75%;
 }
 
 select{
   color: #E9C236;
   background-color: #090C12;
   width: 100%;
+  border: 1px solid grey;
 }
 
 .buttons-wrapper {
   height: 8%;
-  width: 80%;
+  width: 50%;
   display: flex;
+  margin: 10%;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -161,9 +165,9 @@ button {
 .forecast-container{
   font-family: Luminari, Fantasy, Sans-serif, Monospace, Cursive;
   position: absolute;
-  right: 10vh;
-  height: 95%;
-  width: 20%;
+  right: 5vw;
+  height: 85%;
+  width: 18%;
   color: #E9C236;
   display: flex;
   flex-direction: column;
@@ -175,27 +179,26 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 80%;
   height: 35%;
   text-align: center;
 }
 
 .forecast-card{
   position: relative;
-  /* text-align: center; */
   color: black;
   height: 80%;
   width: 50%;
 }
 
 .forecast-card h3{
+  font-size: 3vh;
+  width: 98%;
   position: absolute;
-  /* text-align: center; */
   bottom: 2%;
 }
 
 .forecast-card-img{
-  /* position: absolute;s */
   top: 0;
   left: 0;
   height: 100%;
