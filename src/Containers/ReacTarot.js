@@ -11,7 +11,8 @@ class ReacTarot extends Component {
             deck: [],
             presentedCards: [],
             threeChosenCards: [],
-            selectedCard: {}
+            selectedCard: {},
+            flipped: false
         }
     }
 
@@ -19,7 +20,7 @@ class ReacTarot extends Component {
         fetch("http://localhost:3001/cards")
             .then(resp => resp.json())
             .then(data => this.setState({
-                deck: [...data],
+                deck: [...data.reverse()],
                 presentedCards: [...data]
             }))
     }
@@ -115,6 +116,9 @@ class ReacTarot extends Component {
 
     handleFlipCards = () => {
         console.log("flipping cards")
+        this.setState({
+            flipped: !this.state.flipped
+        })
     }
 
     render() {
@@ -124,6 +128,7 @@ class ReacTarot extends Component {
                     selectedCard={this.state.selectedCard}
                     shuffle={this.handleShuffleCards}
                     flip={this.handleFlipCards}
+                    flipped={this.state.flipped}
                     sort={this.sortCards}
                     filter={this.filterCards}
                 />
@@ -131,6 +136,7 @@ class ReacTarot extends Component {
                 <CardContainer
                     setSelected={this.setSelected}
                     cards={this.state.presentedCards}
+                    flipped={this.state.flipped}
                 />
                 <ForecastContainer
                     cards={this.state.threeChosenCards}
