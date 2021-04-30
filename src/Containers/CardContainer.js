@@ -8,7 +8,6 @@ class CardContainer extends Component {
 
             <div className="card-container">
                 {this.props.shuffling ? <ShuffleIndicator /> :
-
                     this.props.cards.map((card) => {
                         return (<Card
                             flipped={this.props.flipped}
@@ -17,7 +16,6 @@ class CardContainer extends Component {
                             setSelected={this.props.setSelected}
                         />)
                     })
-
                 }
             </div>
         )

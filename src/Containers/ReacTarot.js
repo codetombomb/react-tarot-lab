@@ -98,8 +98,8 @@ class ReacTarot extends Component {
 
     handleShuffleCards = () => {
         let cards = [...this.state.presentedCards].sort(() => Math.random() - .5)
-        this.setState({shuffling: true}, () => {
-            setTimeout(() => {                
+        this.setState({ shuffling: true }, () => {
+            setTimeout(() => {
                 this.setState({
                     presentedCards: cards,
                     shuffling: false
@@ -115,7 +115,6 @@ class ReacTarot extends Component {
     }
 
     handleReset = () => {
-        console.log('resetting')
         this.setState({
             presentedCards: [...this.state.deck],
             threeChosenCards: [],
