@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class Card extends Component {
-    constructor(props){
+    constructor(){
         super()
         this.state = {
             cardInfo: {}
@@ -18,8 +18,7 @@ class Card extends Component {
     render() {
         let backgroundImage = this.props.flipped ? 
         `process.env.PUBLIC_URL../../cardImages/${this.state.cardInfo.name_short}.jpg` : 
-        "https://media.istockphoto.com/illustrations/back-cover-design-of-tarot-card-gothic-pattern-on-old-paper-texture-illustration-id1046396972";
-        console.log(backgroundImage)
+        "https://www.aeclectic.net/tarot/cards/_img/original-rider-waite-03806.jpg";
         return(
             <div className="card-wrapper">
                 <img 

@@ -20,15 +20,13 @@ class ReacTarot extends Component {
         fetch("http://localhost:3001/cards")
             .then(resp => resp.json())
             .then(data => this.setState({
-                deck: [...data.reverse()],
+                deck: [...data],
                 presentedCards: [...data]
             }))
     }
 
-    setSelected = (cardInfo) => {
+    handleSetSelected = (cardInfo) => {
         let newSelectedCards = this.state.threeChosenCards;
-        console.log(cardInfo.name)
-        console.log()
         if (this.state.threeChosenCards.length < 3 && this.state.threeChosenCards.indexOf(cardInfo) === -1) {
             newSelectedCards.push(cardInfo)
         }
@@ -39,83 +37,71 @@ class ReacTarot extends Component {
         })
     }
 
-    sortCards = (selection) => {
+    handleSortCards = (selection) => {
         let newPresentedCards;
-        console.log(selection)
         switch (selection) {
             case "":
                 newPresentedCards = this.state.deck;
                 break;
             case "value":
-                newPresentedCards = this.state.presentedCards.sort((card1, card2) => card1.value > card2.value ? 1 : -1)
+                newPresentedCards = [...this.state.presentedCards].sort((card1, card2) => card1.value > card2.value ? 1 : -1)
                 break;
             case "name":
-                newPresentedCards = this.state.presentedCards.sort((card1, card2) => card1.name > card2.name ? 1 : -1)
+                newPresentedCards = [...this.state.presentedCards].sort((card1, card2) => card1.name > card2.name ? 1 : -1)
                 break;
             case "type":
-                newPresentedCards = this.state.presentedCards.sort((card1, card2) => card1.type > card2.type ? 1 : -1)
+                newPresentedCards = [...this.state.presentedCards].sort((card1, card2) => card1.type > card2.type ? 1 : -1)
                 break;
             default:
                 break;
         }
-        console.log(newPresentedCards)
         this.setState({
             presentedCards: newPresentedCards
         })
-
-
     }
 
-    filterCards = (filter) => {
-        let filteredCards = [];
+    handleFilterCards = (filter) => {
+        let filteredCards;
+        let cards = [...this.state.deck];
         switch (filter) {
             case "all":
-                filteredCards = this.state.deck;
+                filteredCards = cards;
                 break;
             case "major":
-                filteredCards = this.state.deck.filter(card => card.type === 'major');
+                filteredCards = cards.filter(card => card.type === 'major');
                 break;
             case "minor":
-                filteredCards = this.state.deck.filter(card => card.type === 'minor');
+                filteredCards = cards.filter(card => card.type === 'minor');
                 break;
             case "wands":
-                filteredCards = this.state.deck.filter(card => card.suit === 'wands');
+                filteredCards = cards.filter(card => card.suit === 'wands');
                 break;
             case "cups":
-                filteredCards = this.state.deck.filter(card => card.suit === 'cups');
+                filteredCards = cards.filter(card => card.suit === 'cups');
                 break;
             case "pentacles":
-                filteredCards = this.state.deck.filter(card => card.suit === 'pentacles');
+                filteredCards = cards.filter(card => card.suit === 'pentacles');
                 break;
             case "swords":
-                filteredCards = this.state.deck.filter(card => card.suit === 'swords');
+                filteredCards = cards.filter(card => card.suit === 'swords');
                 break;
             default:
                 break;
         }
         this.setState({
-            presentedCards: [...filteredCards]
+            presentedCards: filteredCards
         })
 
     }
 
-
     handleShuffleCards = () => {
-        let cards = this.state.presentedCards;
-        console.log(cards)
-        for(let i = cards.length - 1; i > 0; i--){
-            let j = Math.floor(Math.random() * (i + 1));
-            let temp = cards[i];
-            cards[i] = cards[j];
-            cards[j] = temp;
-        }
+        let cards = [...this.state.presentedCards].sort(() => Math.random() - .5)
         this.setState({
-            presentedCards: [...cards]
+            presentedCards: cards
         })
     }
 
     handleFlipCards = () => {
-        console.log("flipping cards")
         this.setState({
             flipped: !this.state.flipped
         })
@@ -126,21 +112,21 @@ class ReacTarot extends Component {
             <div className="ReacTarot">
                 <DisplayConsole
                     selectedCard={this.state.selectedCard}
+                    flipped={this.state.flipped}
                     shuffle={this.handleShuffleCards}
                     flip={this.handleFlipCards}
-                    flipped={this.state.flipped}
-                    sort={this.sortCards}
-                    filter={this.filterCards}
+                    sort={this.handleSortCards}
+                    filter={this.handleFilterCards}
                 />
                 <Table />
                 <CardContainer
-                    setSelected={this.setSelected}
                     cards={this.state.presentedCards}
                     flipped={this.state.flipped}
+                    setSelected={this.handleSetSelected}
                 />
                 <ForecastContainer
                     cards={this.state.threeChosenCards}
-                    setSelected={this.setSelected}
+                    setSelected={this.handleSetSelected}
                 />
             </div>
         )
