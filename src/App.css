@@ -47,34 +47,39 @@
 }
 
 .card-container {
+  cursor: pointer;
   position: absolute;
-  height: auto;
-  min-height: 300px;
-  width: 30vw;
-  min-width: 375px;
+  height: 60vh;
+  min-height: 250px;
+  width: 75vh;
+  min-width: 300px;
   align-self: flex-end;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-flow: wrap-reverse;
+  flex-flow: wrap;
   flex-grow: 1;
   color: #2E1441;
-  margin-bottom: 7%;
+  bottom: 10%;
+  margin-top: 50%;
+}
+
+.card-wrapper{
+  width: 6.9%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: .2%;
 }
 
 .card {
-  /* background-image: url("https://64.media.tumblr.com/88cd3034cd28676a214ae40f93a1896d/tumblr_o0nfwjRmB51tzjajqo1_1280.jpg"); */
   background-size: cover;
   font-size: .01em;
   background-color: #ffffffd0;
   border: 1px solid grey;
-  margin: .16vw;
-  width: 2vw;
-  height: 3.2vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  width: 90%;
+  height: 100%;
   border-radius: 5%;
 }
 
@@ -116,6 +121,14 @@
   font-size: 1em;
 }
 
+.display-card-info p{
+  margin: 2.5%;
+}
+
+.display-card-info strong{
+  color: #955d01;
+}
+
 .display-card-img {
   position: absolute;
   top: 0;
@@ -155,6 +168,7 @@ select{
 
 button {
   font-family: Luminari, Fantasy, Sans-serif, Monospace, Cursive;
+  cursor: pointer;
   color: #E9C236;
   background-color: #0288AB;
   border: 1px solid #E9C236;
@@ -184,7 +198,14 @@ button {
   text-align: center;
 }
 
+.forecast-card-wrapper h1{
+  text-transform: capitalize;
+  margin: 1%;
+}
+
+
 .forecast-card{
+  cursor: pointer;
   position: relative;
   color: black;
   height: 80%;
@@ -192,10 +213,14 @@ button {
 }
 
 .forecast-card h3{
-  font-size: 3vh;
-  width: 98%;
+  border: 1px solid black;
+  font-size: 1.5vh;
+  background-color: #e9c2369a;
+  width: 100%;
   position: absolute;
-  bottom: 2%;
+  bottom: 0px;
+  left:-1px;
+  border-radius: 0px 0px 5px 5px;
 }
 
 .forecast-card-img{
