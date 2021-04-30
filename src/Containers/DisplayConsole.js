@@ -15,6 +15,7 @@ class DisplayConsole extends Component {
                 <Buttons
                     shuffle={this.props.shuffle}
                     flip={this.props.flip}
+                    reset={this.props.reset}
                 />
             </div>
         )

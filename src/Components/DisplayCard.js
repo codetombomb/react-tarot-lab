@@ -17,8 +17,7 @@ function DisplayCard(props) {
                         <p><strong>NAME:</strong> {props.cardInfo.name}</p>
                         <p><strong>TYPE:</strong> {props.cardInfo.type}</p>
                         <p><strong>VALUE:</strong> {props.cardInfo.value}</p>
-                        <p><strong>MEANING UP:</strong> {props.cardInfo.desc}</p>
-                        <p><strong>MEANING REVERSED:</strong> {props.cardInfo.meaning_rev}</p>
+                        <p><strong>MEANING:</strong> {props.cardInfo.meaning_up}</p>
                         <p><strong>DESCRIPTION:</strong> {props.cardInfo.desc}</p>
                     </div>
                 </div>

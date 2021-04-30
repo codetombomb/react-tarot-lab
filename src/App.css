@@ -64,6 +64,10 @@
   margin-top: 50%;
 }
 
+.spinner-wrapper{
+  color: #E9C236;
+}
+
 .card-wrapper{
   width: 6.9%;
   height: 15%;
